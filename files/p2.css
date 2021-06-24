@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .mainclass {
+    margin-top: 15px;
+    margin: 0 auto;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0px 4px 8px 0px black;
+    transition: 0.5s;
+    font-size: 0;
+    border: 1px solid black;
+  }
+  #displayID {
+    text-align: right;
+    width: 295px;
+    height: 60px;
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid black;
+  }
+  .mainclass:hover {
+    box-shadow: 0px 16px 32px 0px black;
+  }
+  
+  .button-body {
+    padding: 3px;
+  }
+  
+  .btn {
+    width: 73px;
+    height: 60px;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgb(39, 35, 35);
+    color: white;
+  }
+  .btn:hover {
+    background-color: rgb(192, 219, 39);
+  }
+  
+  .opbtn {
+    background-color: rgb(13, 158, 158);
+  }
+  .eqbtn {
+    background-color: rgb(226, 151, 39);
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: 25px;
+  }

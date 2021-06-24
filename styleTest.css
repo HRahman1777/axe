@@ -1,159 +1,27 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: #000000;
-  font: 100% Courier New;
-  margin: 10px;
-  margin-top: 30px;
-}
-h1 {
-  text-align: center;
-  color: #84c754;
-}
-h3 {
-  text-align: center;
-  color: #c4cdbd;
-}
-
-#navbar-div {
-  padding: 10px;
-}
-
-#navlist-ul {
-  list-style-type: none;
-  overflow: hidden;
-  background-color: #26860a;
-}
-
-.navlist-li {
-  float: left;
-}
-.navlist-li-right {
-  float: right;
-}
-
-.navlist-a {
-  display: block;
-  color: #faf9f4;
-  text-align: center;
-  padding: 12px 40px;
-  text-decoration: none;
-}
-
-.navlist-a:hover {
-  background-color: #030303;
-}
-
-#bottom {
-  border: 1px solid #ffffff;
-  border-radius: 4px;
-  color: #ffffff;
-  text-align: center;
-  padding: 10px;
+.hehe {
+  color: #000000;
   font-size: 15px;
+  font-family: "Righteous", cursive;
+  letter-spacing: 5px;
 }
-
-/* middle body ---------  
---------------    ----     */
-.middle-body {
-  margin: 40px auto;
-}
-
-.middleBody-card {
-  text-align: center;
-  height: 340px;
-  width: 360px;
-  border: solid yellow 1px;
-  margin: 0 auto;
-}
-.card-pic {
-  height: 180px;
-  width: 290px;
-  padding: 5px;
-  margin-top: 5px;
-  transition-property: 4px 8px 12px #84c754;
-  /*box-shadow: 4px 8px 12px #84c754;*/
-}
-.middleBody-card:hover {
-  box-shadow: 8px 16px 32px 8px #84c754;
-  transition: 1s;
-}
-.card-pic:hover {
-  box-shadow: 2px 4px 8px 2px #84c754;
-}
-.card-text {
-  color: #84c754;
-  border: solid yellow;
-  margin: 15px 15px 15px 25px;
-  height: 30px;
-}
-
-.skill-animation {
-  text-align: center;
-  margin: 0 auto;
-  margin-top: 25px;
-  width: 480px;
-  border: 1px solid yellow;
-  padding: 15px;
-  background-color: rgb(99, 96, 96);
-}
-.skill-animation li {
-  color: #ffffff;
-  list-style: none;
-  margin: 30px;
-  position: relative;
-}
-
-.skill-animation li::before {
-  content: "";
-  position: absolute;
-  top: calc(100% + 5px);
+.footer {
+  position: fixed;
   left: 0;
-
-  background-color: black;
+  bottom: 0;
   width: 100%;
-  height: 25px;
-  border-radius: 1000px;
 }
 
-.skill-animation li::after {
-  content: "";
-  position: absolute;
-  top: calc(100% + 5px);
-  left: 0;
-
-  background-color: chartreuse;
-  width: 0;
-  height: 25px;
-  border-radius: 1000px;
-
-  animation-duration: 3s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: forward;
+#DIV2 {
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  transform: rotate(-30deg);
+  animation: mymove 5s infinite;
 }
 
-.skill-animation li::after {
-  animation-name: all;
-}
-
-@keyframes all {
-  to {
-    width: 90%;
-    background-color: chartreuse;
-  }
-}
-.skill-animation li#java::after {
-  animation-name: java;
-}
-
-@keyframes java {
-  to {
-    width: 70%;
-    background-color: chartreuse;
+@keyframes mymove {
+  50% {
+    transform-origin: 0 0 0;
   }
 }

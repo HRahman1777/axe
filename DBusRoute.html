@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AXE | Dhaka Bus Route</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styleTest.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">AXE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="DIU_waiver.html">Waiver DIU</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PageTwo.html">Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="DBusRoute.html">Dhaka Bus Route</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav d-flex">
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <br>
+
+        <div class="shadow-lg p-3 mb-5 bg-body rounded text-center">
+            <label for="r_from">From:</label>
+            <select class="form-select" name="route" id="r_from">
+                <option value="empty">Empty</option>
+                <option value="gazipur">Chowrasta-Gazipur</option>
+                <option value="tongi">Tongi</option>
+                <option value="abdullahpur">Abdullahpur</option>
+            </select>
+            <br>
+            <label for="r_to">To:</label>
+            <select class="form-select" name="route" id="r_to">
+                <option value="empty">Empty</option>
+                <option value="gazipur">Chowrasta-Gazipur</option>
+                <option value="tongi">Tongi</option>
+                <option value="abdullahpur">Abdullahpur</option>
+            </select>
+            <br>
+            <input type="button" class="btn btn-outline-dark" onclick="findBus()" value="Submit">
+        </div>
+        <br>
+        <p id="result"></p>
+
+    </div>
+
+    <footer class="footer">
+        <div class="bg-light py-4">
+            <div class="container text-center">
+                <p class="text-muted mb-0 py-2">©2021 Hasibur Rahman</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="files/dbr.js"></script>
+</body>
+
+</html>

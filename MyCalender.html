@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>MyCalender - HRahman1777</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        font-family: 'Roboto', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+
+      h2 {
+        margin-bottom: 10px;
+        color: #444;
+      }
+
+      input[type='date'] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-right: 10px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #calendar {
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      table {
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      caption {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+      }
+
+      th,
+      td {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border: 1px solid #ddd;
+        font-size: 14px;
+      }
+
+      th {
+        background-color: #f4f4f9;
+        font-weight: bold;
+      }
+
+      td {
+        background-color: #fff;
+        transition: background-color 0.3s ease;
+      }
+
+      td.highlight_1st {
+        background-color: #a5d6a7;
+        color: #333;
+        font-weight: bold;
+        border-radius: 50%;
+        border: 2px solid #007bff;
+      }
+      td.highlight_2nd {
+        background-color: #f48fb1;
+        color: #333;
+        font-weight: bold;
+        border-radius: 50%;
+        border: 2px solid black;
+      }
+      td.highlight_3rd {
+        background-color: #f8c3d5;
+        color: #333;
+        font-weight: bold;
+        border-radius: 50%;
+        border: 2px solid #007bff;
+      }
+
+      td:hover {
+        background-color: #f1f1f1;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>--// Enter Date //--</h2>
+    <input type="date" id="startDate" />
+    <br />
+    <button id="generate">Submit</button>
+
+    <div id="calendar"></div>
+
+    <script>
+      function generateCalendar(startDateStr) {
+        const calendarDiv = $('#calendar');
+        calendarDiv.empty();
+
+        const startDate = new Date(startDateStr);
+        const datesToHighlight = [];
+
+        for (let i = 0; i < 29; i++) {
+          const d = new Date(startDate);
+          d.setDate(startDate.getDate() + i);
+          datesToHighlight.push(d.toDateString());
+        }
+
+        const monthsToRender = new Set(
+          datesToHighlight.map((d) => new Date(d).getMonth())
+        );
+
+        monthsToRender.forEach((monthOffset) => {
+          const monthDate = new Date(
+            startDate.getFullYear(),
+            monthOffset,
+            1
+          );
+          const year = monthDate.getFullYear();
+          const month = monthDate.getMonth();
+
+          const firstDay = new Date(year, month, 1).getDay();
+          const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+          const table = $('<table>');
+          const caption = $('<caption>').text(
+            monthDate.toLocaleString('default', {
+              month: 'long',
+              year: 'numeric',
+            })
+          );
+          table.append(caption);
+
+          const headerRow = $('<tr>').append(
+            ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(
+              (day) => $('<th>').text(day)
+            )
+          );
+          table.append(headerRow);
+
+          let row = $('<tr>');
+          for (let i = 0; i < firstDay; i++) row.append($('<td>'));
+
+          for (let day = 1; day <= daysInMonth; day++) {
+            const current = new Date(year, month, day);
+            const td = $('<td>').text(day);
+
+            const dayIndex = datesToHighlight.indexOf(
+              current.toDateString()
+            );
+
+            if (dayIndex >= 0) {
+              if (dayIndex < 6) {
+                td.addClass('highlight_1st');
+              } else if (dayIndex < 15) {
+                td.addClass('highlight_2nd');
+              } else if (dayIndex < 22) {
+                td.addClass('highlight_3rd');
+              } else {
+                td.addClass('highlight_1st');
+              }
+            }
+
+            row.append(td);
+
+            if ((firstDay + day) % 7 === 0 || day === daysInMonth) {
+              table.append(row);
+              row = $('<tr>');
+            }
+          }
+
+          calendarDiv.append(table);
+        });
+      }
+
+      $('#generate').click(() => {
+        const dateVal = $('#startDate').val();
+        if (!dateVal) {
+          alert('Please enter a date.');
+          return;
+        }
+        generateCalendar(dateVal);
+      });
+    </script>
+  </body>
+</html>
